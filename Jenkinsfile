@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        GITHUB_CREDENTIALS = credentials('pedroagtrodrigues@gmail.com')  // ID das credenciais do GitHub configuradas no Jenkins
+        GITHUB_CREDENTIALS = credentials('demo-app-git-credentials')  // ID das credenciais do GitHub configuradas no Jenkins
     }
 
     stages {
