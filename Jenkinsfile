@@ -48,14 +48,14 @@ pipeline {
             post {
                 always {
                     echo 'Publicando cobertura de código...'
-                    publishHTML(target: [
-                        allowMissing: false,
-                        alwaysLinkToLastBuild: true,
-                        keepAll: true,
-                        reportDir: 'target/site/jacoco',
-                        reportFiles: 'index.html',
-                        reportName: 'JaCoCo Code Coverage'
-                    ])
+                   publishHTML(target: [
+                       allowMissing: false,
+                       alwaysLinkToLastBuild: true,
+                       keepAll: true,
+                       reportDir: 'target/spotbugs',
+                       reportFiles: 'spotbugs.html',
+                       reportName: 'SpotBugs Analysis'
+                   ])
                 }
             }
         }
