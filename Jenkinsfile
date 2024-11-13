@@ -49,7 +49,7 @@ pipeline {
                 always {
                     echo 'Publicando cobertura de código...'
                    publishHTML(target: [
-                       allowMissing: false,
+                       allowMissing: true,
                        alwaysLinkToLastBuild: true,
                        keepAll: true,
                        reportDir: 'target/spotbugs',
@@ -69,7 +69,7 @@ pipeline {
                 always {
                     echo 'Publicando relatório de análise de código...'
                     publishHTML(target: [
-                        allowMissing: false,
+                        allowMissing: true,
                         alwaysLinkToLastBuild: true,
                         keepAll: true,
                         reportDir: 'target/spotbugs',
