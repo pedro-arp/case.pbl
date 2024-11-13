@@ -132,8 +132,9 @@
 					</execution>
 				</executions>
 				<configuration>
-					<includeFilterFile>spotbugs-security-include.xml</includeFilterFile>
-					<excludeFilterFile>spotbugs-security-exclude.xml</excludeFilterFile>
+					<xmlOutput>true</xmlOutput>
+					<htmlOutput>true</htmlOutput> <!-- Gera o relatório em HTML -->
+					<outputDirectory>target/spotbugs</outputDirectory> <!-- Define o diretório de saída -->
 					<plugins>
 						<plugin>
 							<groupId>com.h3xstream.findsecbugs</groupId>
