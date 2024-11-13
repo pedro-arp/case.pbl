@@ -6,17 +6,17 @@ pipeline {
         jdk 'JAVA_HOME'         // Substitua pelo nome exato da instalação do JDK configurado no Jenkins
     }
 
-    environment {
-        GITHUB_CREDENTIALS = credentials('demo-app-git-credentials')  // ID das credenciais do GitHub configuradas no Jenkins
+  environment {
+        GITHUB_CREDENTIALS = credentials('demo-app-git-credentials')  // Certifique-se que o ID está correto
     }
 
     stages {
         stage('Checkout') {
             steps {
                 // Realiza o checkout do código usando as credenciais configuradas para o GitHub
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']],
-                          userRemoteConfigs: [[url: 'https://github.com/seu-usuario/seu-repositorio.git',
-                                               credentialsId: "${GITHUB_CREDENTIALS}"]]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']],
+                          userRemoteConfigs: [[url: 'https://github.com/pedro-arp/case.pbl.git',
+                                               credentialsId: GITHUB_CREDENTIALS]]])  // ID de credenciais atualizado
             }
         }
 
