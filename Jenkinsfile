@@ -1,16 +1,16 @@
 pipeline {
     agent any
+    tools {
+        maven 'M2_HOME'
+    }
     options {
         skipStagesAfterUnstable()
-    }
-    parameters {
-        booleanParam(name: 'SKIP_TESTS', defaultValue: true, description: 'Skip tests during build')
     }
     stages {
         stage('Build') {
             steps {
                 echo 'building the application...'
-                sh "mvn -B -DskipTests=${params.SKIP_TESTS} clean package"
+                sh 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
@@ -26,10 +26,10 @@ pipeline {
             }
         }
         stage('Deploy') {
-                    steps {
-                        echo 'deploying the application...'
-                        sh './jenkins/scripts/deliver.sh'
-                    }
-                }
+            steps {
+                echo 'deploying the application...'
+                sh './jenkins/scripts/deliver.sh'
             }
         }
+    }
+}
